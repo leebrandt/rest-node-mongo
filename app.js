@@ -4,13 +4,14 @@ import cookieParser from "cookie-parser";
 import logger from "morgan";
 const mongoose = require('mongoose');
 
+import config from './config';
 import indexRouter from "./routes/index";
 import speakersRouter from "./routes/speakers";
 
 const app = express();
 
 // mongoose setup
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/kcdc');
+mongoose.connect(process.env.MONGODB_URI || config.mongoCnx);
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 process.on('unhandledRejection', error => {

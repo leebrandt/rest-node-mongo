@@ -13,10 +13,7 @@ const SpeakerSchema = Schema({
   email: {
     type: String,
     trim: true
-  },
-  // sessions: {
-  //   type: [{ type: Schema.Types.ObjectId, ref: 'Session' }]
-  // }
+  }
 });
 
 module.exports = mongoose.model('Speaker', SpeakerSchema);
